@@ -27,7 +27,7 @@ public class Exercice4 {
         String filePath = null;
 
         if (args.length == 0)
-            filePath = new String("dracula.txt");
+            filePath = new String("article.txt");
         else if (args.length > 0 && args[0] != null && !args[0].isEmpty())
         {
             filePath = args[0];
@@ -54,7 +54,7 @@ public class Exercice4 {
             récupère tous les couples clé, valeur
             les trie par valeur et les insèrent du plus petit au plus grand
              */
-            words.entrySet().stream()
+            words.entrySet().parallelStream()
                     .sorted(Map.Entry.comparingByValue())
                     .forEachOrdered(x -> sortedWords.put(x.getKey(), x.getValue()));
 
